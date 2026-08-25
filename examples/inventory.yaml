@@ -1,0 +1,26 @@
+schema: 1
+roles:
+  - name: home-control
+    placement: appliance-or-vm
+    capabilities: [home-assistant, automations, assist]
+    durable_state: true
+  - name: operations
+    placement: small-management-host
+    capabilities: [git, evidence, validation, backup-coordination]
+    durable_state: true
+  - name: optional-ai-voice
+    placement: gpu-worker-or-cloud
+    capabilities: [speech-to-text, text-to-speech, conversation]
+    required_for_home_control: false
+  - name: optional-services
+    placement: container-host-or-appliance-addon
+    capabilities: [dashboards, household-workflows]
+    required_for_home_control: false
+hardware:
+  machine_count: unknown-until-inspected
+  power_budget: unknown-until-measured
+  recovery_console: to-be-confirmed
+network:
+  remote_access: to-be-confirmed
+  multicast_requirements: to-be-tested
+

@@ -1,0 +1,15 @@
+flowchart LR
+    room[Room microphone]
+    wake[Wake word]
+    assist[Home Assistant Assist]
+    stt[Speech-to-text]
+    intent{Deterministic home intent?}
+    control[Home control]
+    llm[Optional local/cloud LLM]
+    tts[Text-to-speech]
+    speaker[Room speaker]
+
+    room --> wake --> assist --> stt --> intent
+    intent -->|yes| control --> tts
+    intent -->|no| llm --> tts --> speaker
+

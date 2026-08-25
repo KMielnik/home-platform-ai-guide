@@ -1,0 +1,33 @@
+flowchart TB
+    classDef durable fill:#d8f3dc,stroke:#2d6a4f,color:#081c15
+    classDef optional fill:#fff3bf,stroke:#9c6644,color:#332100
+    classDef boundary fill:#e7ecef,stroke:#495057,color:#111
+
+    subgraph Home[Home control role]
+      HA[Home Assistant]
+      P[Zigbee / Thread / Matter / Wi-Fi]
+      HA <--> P
+    end
+
+    subgraph Ops[Operations role]
+      G[Git and source of truth]
+      E[Evidence and runbooks]
+      B[Backup coordination]
+      G --> E --> B
+    end
+
+    subgraph Optional[Optional role]
+      V[Voice worker]
+      W[Workflow services]
+      C[On-demand compute]
+    end
+
+    Ops -->|scoped interfaces| HA
+    V -->|Assist intents only| HA
+    W -->|events and approvals| HA
+    C -.->|enhancement, never core dependency| V
+
+    class HA,P durable
+    class G,E,B boundary
+    class V,W,C optional
+

@@ -1,0 +1,15 @@
+schema: 1
+demo:
+  name: offline-fallback
+  network: disabled
+  purpose: show an inspect-propose-change-verify-restore checkpoint
+voice:
+  deterministic_control_first: true
+  aliases: []
+boundaries:
+  household_control: approved-only
+  infrastructure_admin: excluded
+  external_calls: disabled
+recovery:
+  source: reviewed-files
+  restore_target: isolated-temporary-folder

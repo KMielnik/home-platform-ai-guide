@@ -1,0 +1,18 @@
+schema: 1
+roles:
+  - name: control
+    purpose: deterministic household action
+    capability: simulated-control-endpoint
+    required_for_demo: true
+  - name: operations
+    purpose: inspect, propose, and verify
+    capability: local-files-and-checks
+    required_for_demo: true
+  - name: optional-conversation
+    purpose: broader questions only
+    capability: unavailable-in-offline-mode
+    required_for_demo: false
+runtime:
+  network: disabled
+  external_services: none
+  personal_identifiers: omitted

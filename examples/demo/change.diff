@@ -1,0 +1,11 @@
+diff --git a/context.yaml b/context.yaml
+index 1111111..2222222 100644
+--- a/context.yaml
++++ b/context.yaml
+@@ -5,5 +5,5 @@ demo:
+   purpose: show an inspect-propose-change-verify-restore checkpoint
+ voice:
+   deterministic_control_first: true
+-  aliases: []
++  aliases: [room light]
+ boundaries:

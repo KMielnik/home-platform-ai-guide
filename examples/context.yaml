@@ -1,0 +1,20 @@
+schema: 1
+household:
+  name: example-home
+  languages: [en]
+  timezone: Etc/UTC
+  voice:
+    deterministic_control_first: true
+    infrastructure_admin_from_voice: false
+    aliases_are_tested: true
+boundaries:
+  destructive_changes: attended
+  network_and_firewall_changes: attended
+  routine_read_only_checks: unattended
+  optional_ai_may_be_unavailable: true
+ownership:
+  home_control: home-assistant
+  desired_configuration: git
+  observed_state: dated-reports
+  recovery: independent-backup-destination
+
